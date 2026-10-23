@@ -29,9 +29,13 @@ An end-to-end data engineering, analytics, and machine learning pipeline built t
 
 ## Repository Structure
 
-eccomerce_olist_pipeline/app/app.py #Streamlit web aplication & simulator
-eccomerce_olist_pipeline/data/raw/  #Source CSV files (Olist dataset)
-eccomerce_olist_pipeline/data/model_rf.joblib     # Serialized Random Forest model
-eccomerce_olist_pipeline/notebook/01_eda.ipynb        # Data exploration, SQL queries & ML training
-eccomerce_olist_pipeline/src/etl.py              # Automated ETL script for SQLite ingestion
-eccomerce_olist_pipeline/requirements.txt             # Python package dependencies
+eccomerce_olist_pipeline/app/app.py #Streamlit web aplication & simulator\
+eccomerce_olist_pipeline/data/raw/  #Source CSV files (Olist dataset) \
+eccomerce_olist_pipeline/data/model_rf.joblib     # Serialized Random Forest model\
+eccomerce_olist_pipeline/notebook/01_eda.ipynb        # Data exploration, SQL queries & ML training\
+eccomerce_olist_pipeline/src/etl.py              # Automated ETL script for SQLite ingestion\
+eccomerce_olist_pipeline/requirements.txt             # Python package dependencies\
+
+![Review Score](assets/review_score.JPG)
+![Delivery Metrics](assets/global_delivery_metrics.JPG)
+![Risk simulator](assets/risk_simulator.JPG)

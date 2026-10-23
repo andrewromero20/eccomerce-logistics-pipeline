@@ -34,8 +34,34 @@ eccomerce_olist_pipeline/data/raw/  #Source CSV files (Olist dataset) \
 eccomerce_olist_pipeline/data/model_rf.joblib     # Serialized Random Forest model\
 eccomerce_olist_pipeline/notebook/01_eda.ipynb        # Data exploration, SQL queries & ML training\
 eccomerce_olist_pipeline/src/etl.py              # Automated ETL script for SQLite ingestion\
-eccomerce_olist_pipeline/requirements.txt             # Python package dependencies\
+eccomerce_olist_pipeline/requirements.txt             # Python package dependencies
+
+## Key findins & Results
+### Impact of Delivery Status on Customer Satisfaction
 
 ![Review Score](assets/review_score.JPG)
+* **High Satisfaction for On-Time Deliveries:** Orders delivered on time or early maintain a median rating of **5 stars**, with more than 75% of users rating their experience between 4 and 5 stars.
+* **Severe Rating Collapse on Delays:** When a package is delayed, the median score drops drastically to **2 stars**.
+* **Key Takeaway:** Over 75% of delayed orders receive a score of 4 stars or lower, with a heavy concentration of 1-star ratings. This proves that shipping speed is the single most critical factor driving negative customer reviews.
+### Descriptive Statistics
+![Descriptive Statistics](assets/statistics.JPG)
+* **Low Overall Delay Rate:** Only **8.11%** of delivered orders missed their estimated delivery window.
+* **Delivery Time Variance & Outliers:** The average delivery time is **12.56 days** with a high standard deviation of **9.55 days**. The maximum value of **209.6 days** indicates extreme logistics bottlenecks that skew the average; the median (**10.22 days**) represents typical fulfillment performance more accurately.
+* **Generous Estimation Buffers:** The negative mean for `delay_days` (**-11.18 days**) shows that the platform's initial estimation model builds in conservative safety buffers, delivering packages roughly 11 days before the promised deadline on average[cite: 4].
+* **Review Score Distribution:** The average rating remains high at **4.16 stars** ($\sigma = 1.28$), confirming that the overall customer sentiment is positive as long as orders arrive within the promised window[cite: 4].
+
+### Interactive Dashboard
 ![Delivery Metrics](assets/global_delivery_metrics.JPG)
+* **Real-Time Database Integration:** The Web Application connects directly to the processed SQLite database, displaying live aggregated metrics across **96,478 delivered orders**[cite: 5].
+* **Core Logistics Metrics (SLA):** Offers immediate visibility into high-level business indicators:
+  * **Total Orders Processed:** 96,478 orders[cite: 5]
+  * **Global Delay Rate:** 8.11%[cite: 5]
+  * **On-Time Service Level Agreement (SLA):** 91.89%[cite: 5]
+* **Modular UI Design:** Built with a tabbed architecture (`KPIs & Operational Analysis` and `Risk Simulator`) to separate executive-level monitoring from interactive predictive simulations[cite: 5].
+
+### Real-Time Machine Learning Delay Risk Simulator
 ![Risk simulator](assets/risk_simulator.JPG)
+* **Live Model Inference:** Connects the trained `Random Forest` model (`model_rf.joblib`) to an interactive UI for evaluating delivery risk prior to checkout or dispatch.
+* **Custom Feature Input:** Enables operators to input real-time shipment attributes, including product price ($100 BRL), freight cost ($20 BRL), promised delivery timeline (15 days), location flags, package dimensions, and purchase timing.
+* **Automated Risk Scoring & Decision Support:** Calculates derived features on the fly (e.g., freight ratio and total package volume in $\text{cm}^3$) to output an instant delay probability (e.g., **LOW DELAY RISK: 33.4%**) accompanied by clear operational recommendations[cite: 6].
+

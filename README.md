@@ -47,21 +47,21 @@ eccomerce_olist_pipeline/requirements.txt             # Python package dependenc
 ![Descriptive Statistics](assets/statistics.JPG)
 * **Low Overall Delay Rate:** Only **8.11%** of delivered orders missed their estimated delivery window.
 * **Delivery Time Variance & Outliers:** The average delivery time is **12.56 days** with a high standard deviation of **9.55 days**. The maximum value of **209.6 days** indicates extreme logistics bottlenecks that skew the average; the median (**10.22 days**) represents typical fulfillment performance more accurately.
-* **Generous Estimation Buffers:** The negative mean for `delay_days` (**-11.18 days**) shows that the platform's initial estimation model builds in conservative safety buffers, delivering packages roughly 11 days before the promised deadline on average[cite: 4].
+* **Generous Estimation Buffers:** The negative mean for `delay_days` (**-11.18 days**) shows that the platform's initial estimation model builds in conservative safety buffers, delivering packages roughly 11 days before the promised deadline on average\.
 * **Review Score Distribution:** The average rating remains high at **4.16 stars** ($\sigma = 1.28$), confirming that the overall customer sentiment is positive as long as orders arrive within the promised window[cite: 4].
 
 ### Interactive Dashboard
 ![Delivery Metrics](assets/global_delivery_metrics.JPG)
-* **Real-Time Database Integration:** The Web Application connects directly to the processed SQLite database, displaying live aggregated metrics across **96,478 delivered orders**[cite: 5].
+* **Real-Time Database Integration:** The Web Application connects directly to the processed SQLite database, displaying live aggregated metrics across **96,478 delivered orders**\.
 * **Core Logistics Metrics (SLA):** Offers immediate visibility into high-level business indicators:
-  * **Total Orders Processed:** 96,478 orders[cite: 5]
-  * **Global Delay Rate:** 8.11%[cite: 5]
-  * **On-Time Service Level Agreement (SLA):** 91.89%[cite: 5]
-* **Modular UI Design:** Built with a tabbed architecture (`KPIs & Operational Analysis` and `Risk Simulator`) to separate executive-level monitoring from interactive predictive simulations[cite: 5].
+  * **Total Orders Processed:** 96,478 orders\
+  * **Global Delay Rate:** 8.11%\
+  * **On-Time Service Level Agreement (SLA):** 91.89%\
+* **Modular UI Design:** Built with a tabbed architecture (`KPIs & Operational Analysis` and `Risk Simulator`) to separate executive-level monitoring from interactive predictive simulations\.
 
 ### Real-Time Machine Learning Delay Risk Simulator
 ![Risk simulator](assets/risk_simulator.JPG)
 * **Live Model Inference:** Connects the trained `Random Forest` model (`model_rf.joblib`) to an interactive UI for evaluating delivery risk prior to checkout or dispatch.
 * **Custom Feature Input:** Enables operators to input real-time shipment attributes, including product price ($100 BRL), freight cost ($20 BRL), promised delivery timeline (15 days), location flags, package dimensions, and purchase timing.
-* **Automated Risk Scoring & Decision Support:** Calculates derived features on the fly (e.g., freight ratio and total package volume in $\text{cm}^3$) to output an instant delay probability (e.g., **LOW DELAY RISK: 33.4%**) accompanied by clear operational recommendations[cite: 6].
+* **Automated Risk Scoring & Decision Support:** Calculates derived features on the fly (e.g., freight ratio and total package volume in $\text{cm}^3$) to output an instant delay probability (e.g., **LOW DELAY RISK: 33.4%**) accompanied by clear operational recommendations\.
 

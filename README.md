@@ -65,3 +65,10 @@ eccomerce_olist_pipeline/requirements.txt             # Python package dependenc
 * **Custom Feature Input:** Enables operators to input real-time shipment attributes, including product price ($100 BRL), freight cost ($20 BRL), promised delivery timeline (15 days), location flags, package dimensions, and purchase timing.
 * **Automated Risk Scoring & Decision Support:** Calculates derived features on the fly (e.g., freight ratio and total package volume in $\text{cm}^3$) to output an instant delay probability (e.g., **LOW DELAY RISK: 33.4%**) accompanied by clear operational recommendations\.
 
+### Feature Importance & Delay Drivers
+![Risk simulator](assets/feauture_importance.JPG)
+* **Dominant Risk Factors:** The model identifies **Freight Ratio** (`freight_ratio`), **Freight Cost** (`freight_value`), **Product Volume** (`product_volume_cm3`), and **Item Price** (`price`) as the primary drivers of shipping delays, accounting for over 75% of total predictive power.
+* **Volume & Freight Dynamics:** Larger and bulkier products naturally increase shipping costs (`freight_value`) and demand specialized cargo handling or longer routing, significantly increasing the probability of logistics bottlenecks.
+* **Economic & Distance Proxy:** High freight costs relative to item price (`freight_ratio`) often serve as a strong proxy for long-distance or cross-state deliveries, where inter-modal transfers add delay risk.
+* **Operational Insight:** Time-based variables (like purchase hour or day of the week) have minimal impact compared to physical product dimensions and shipping economics.
+

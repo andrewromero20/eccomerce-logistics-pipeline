@@ -1,0 +1,13 @@
+# Virtual environments
+venv/
+.venv/
+
+# Python and Jupyter temporary files
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+
+# Optional: ignore large CSV files if they exceed GitHub limits
+data/raw/*.csv
+
+data/olist.db
